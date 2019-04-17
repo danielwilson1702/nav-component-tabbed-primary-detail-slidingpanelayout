@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/master_nav_graph"
+            app:startDestination="@id/master_fragment">
+
+    <fragment
+            android:id="@+id/master_fragment"
+            android:name="com.myapplication.MasterFragment"
+            android:label="MasterFragment">
+
+        <argument
+                android:name="tab_number"
+                app:argType="integer"/>
+
+        <!-- This is used for portrait phones to get an explicit detail view -->
+        <action
+                android:id="@+id/show_details_from_master"
+                app:destination="@id/detail_activity"/>
+
+    </fragment>
+
+    <!-- This is used for portrait phones to get an explicit detail view -->
+    <activity
+            android:id="@+id/detail_activity"
+            android:name="com.myapplication.DetailActivity"
+            android:label="DetailActivity">
+
+        <argument
+                android:name="tab_number"
+                app:argType="integer"/>
+        <argument
+                android:name="some_extra_info"
+                app:argType="string"/>
+    </activity>
+
+</navigation>

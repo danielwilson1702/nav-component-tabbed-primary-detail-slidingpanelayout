@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="title_activity_launch">LaunchActivity</string>
+
+    <string name="cat_tab_item_label">Tab %d</string>
+
+</resources>
