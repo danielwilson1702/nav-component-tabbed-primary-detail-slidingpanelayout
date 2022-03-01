@@ -1,2 +1,2 @@
-# navigation-component-tabbed-master-detail
-Attempt at a tabbed master-detail nav flow using the Jetpack Navigation Component
+# navigation-component-tabbed-primary-detail
+A two pane primary-detail, tabbed nav flow using the Jetpack Navigation Component

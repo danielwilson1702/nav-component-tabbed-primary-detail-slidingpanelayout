@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/launch_nav_graph"
+    app:startDestination="@id/fragment_splash">
+
+    <fragment
+        android:id="@+id/fragment_splash"
+        android:name="com.myapplication.launch.SplashFragment"
+        android:label="SplashFragment">
+
+        <action
+            android:id="@+id/show_tabs"
+            app:destination="@id/tabs_nav_graph"
+            app:popUpTo="@id/fragment_splash"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <include app:graph="@navigation/tabs_nav_graph" />
+
+
+</navigation>

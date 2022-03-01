@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/detail_nav_graph"
+    app:startDestination="@id/detail_fragment">
+
+    <!-- programmatic, global safe-args action to "reset" the detail view for a tab-->
+    <action
+        android:id="@+id/openDetail"
+        app:destination="@id/detail_nav_graph">
+        <argument
+            android:name="tab_number"
+            app:argType="integer" />
+
+        <argument
+            android:name="primary_selection"
+            app:argType="string" />
+    </action>
+
+    <fragment
+        android:id="@+id/detail_fragment"
+        android:name="com.myapplication.DetailFragment"
+        android:label="DetailFragment">
+        <argument
+            android:name="tab_number"
+            app:argType="integer" />
+
+        <argument
+            android:name="primary_selection"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
