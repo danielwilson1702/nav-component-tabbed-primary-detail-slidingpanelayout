@@ -11,9 +11,10 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:name=".LaunchActivity"
+                android:name=".launch.SplashActivity"
                 android:label="@string/title_activity_launch"
-                android:theme="@style/AppTheme.NoActionBar">
+                android:theme="@style/AppTheme.NoActionBar"
+                android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -21,10 +22,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-                android:name=".DetailActivity"
-                android:label="@string/title_item_detail"
-                android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

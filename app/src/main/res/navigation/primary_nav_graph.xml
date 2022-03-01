@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/primary_nav_graph"
+    app:startDestination="@id/primary_fragment">
+
+    <fragment
+        android:id="@+id/primary_fragment"
+        android:name="com.myapplication.PrimaryFragment"
+        android:label="PrimaryFragment">
+
+        <argument
+            android:name="tab_number"
+            app:argType="integer" />
+
+    </fragment>
+
+</navigation>

@@ -7,21 +7,25 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
-import kotlinx.android.synthetic.main.fragment_detail.view.*
+import com.myapplication.databinding.FragmentDetailBinding
 
 
 class DetailFragment : Fragment() {
 
     val args by navArgs<DetailFragmentArgs>()
 
+    private var _binding: FragmentDetailBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_detail, container, false)
+    ): View {
+        _binding = FragmentDetailBinding.inflate(inflater, container, false)
 
-        rootView.detail_text.text = "Detail view, tab number: ${args.tabNumber}"
-        rootView.detail_extra_info_text.text = args.someExtraInfo
-        return rootView
+        binding.detailText.text = "Detail view, tab number: ${args.tabNumber}"
+        binding.detailExtraInfoText.text = args.primarySelection
+        return binding.root
+
     }
 }
