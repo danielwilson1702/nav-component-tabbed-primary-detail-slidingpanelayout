@@ -2,6 +2,7 @@ package com.myapplication
 
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.doOnLayout
 import androidx.slidingpanelayout.widget.SlidingPaneLayout
 
 class TwoPaneOnBackPressedCallback(
@@ -35,13 +36,21 @@ class TwoPaneOnBackPressedCallback(
     }
 
     fun onTabResumed(){
-        // Reset pane state when we change tabs.
         // A call to onLayout is required to reset mFirstLayout to false, allowing closePane to function.
-        isEnabled = slidingPaneLayout.isSlideable && slidingPaneLayout.isOpen
+        // This is a consequence of the spl assuming that a layout pass always happens with an attachment.
+        // When switching tabs, when we reattach there is no layout pass.
         slidingPaneLayout.requestLayout()
+
+        // During rotations, isSlideable is not correct until we have laid out the view,
+        // so we reset the back button behavior only after a layout pass.
+        slidingPaneLayout.doOnLayout {
+            isEnabled = slidingPaneLayout.isSlideable && slidingPaneLayout.isOpen
+        }
     }
 
     fun onTabPaused(){
+        // Disable intercepting the system back button when a tab is changed.
+        // Each tab handles it's own back button.
         isEnabled = false
     }
 }
